@@ -1,17 +1,15 @@
 #!/usr/bin/env python3
-"""Measures the time taken for a function to execute"""
-import time
+"""Measure runtime and return result"""
 import asyncio
+import time
 
-wait_n = __import__('1-concurrent_coroutines').wait_n
+async_comprehension = __import__('1-async_comprehension').async_comprehension
 
 
-def measure_time(n: int, max_delay: int) -> float:
-    """Measures time taken to run coroutines"""
-    start_time = time.time()
-
-    asyncio.run(wait_n(n, max_delay))
-
-    end_time = time.time()
-
-    return (start_time - end_time)/n
+async def measure_runtime() -> float:
+    """Measure runtime and return result"""
+    start = time.time()
+    tasks = [async_comprehension() for i in range(4)]
+    await asyncio.gather(*tasks)
+    end = time.time()
+    return end - start

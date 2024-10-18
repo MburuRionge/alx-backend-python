@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
-"""Contains async coroutine"""
-import random
+"""An async generator"""
 import asyncio
+import random
+from typing import Generator
 
 
-async def wait_random(max_delay: int = 10) -> float:
-    """wait a random time and return same random number"""
-    delay = random.uniform(0, max_delay)
-    await asyncio.sleep(delay)
-    return delay
+async def async_generator() -> Generator[float, None, None]:
+    """Returns a generator"""
+    for _ in range(10):
+        await asyncio.sleep(1)
+        yield random.uniform(0, 10)

@@ -1,7 +1,14 @@
+#!/usr/bin/env python3
+
 import asyncio
 
-wait_random = __import__('0-basic_async_syntax').wait_random
 
-print(asyncio.run(wait_random()))
-print(asyncio.run(wait_random(5)))
-print(asyncio.run(wait_random(15)))
+measure_runtime = __import__('2-measure_runtime').measure_runtime
+
+
+async def main():
+    return await (measure_runtime())
+
+print(
+    asyncio.run(main())
+)
