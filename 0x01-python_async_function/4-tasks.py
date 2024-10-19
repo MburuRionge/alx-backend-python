@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 """Takes int arg, waits for random delay"""
 
 from typing import List

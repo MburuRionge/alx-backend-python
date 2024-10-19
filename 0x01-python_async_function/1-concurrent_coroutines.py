@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 """a coroutine that returns the list of all delays"""
 import asyncio
 import random
